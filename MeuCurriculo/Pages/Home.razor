@@ -1,0 +1,43 @@
+﻿@page "/"
+
+<PageTitle>Currículo | Dev .NET</PageTitle>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="text-center p-4 bg-light rounded-3 mb-4">
+                <img src="https://static.wikia.nocookie.net/biografia-de-artistas/images/4/42/Cau%C3%A3_Reymond_.jpg/revision/latest?cb=20240216030443&path-prefix=pt-br"
+                     width="120" /> <br>
+                <h3>Cauã Mendes</h3>
+                <p class="text-muted">Tecnico Em Informatica</p>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="mb-4">Experiência Profissional</h2>
+            
+            @foreach (var exp in MinhasExperiencias)
+            {
+                <ExperienciaCard Dados="exp" />
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Experiencia> MinhasExperiencias = new()
+    {
+        new Experiencia {
+            Empresa = "Prefeitura de Ibirite",
+            Cargo = "Tecnico",
+            Inicio = "2025",
+            Descricao = "Atuação em manutenção de cpu e derivados e Infraestrutura de rede."
+        },
+        new Experiencia {
+            Empresa = "Almaviva",
+            Cargo = "Telemarketing",
+            Inicio = "2023", Fim = "2025",
+            Descricao = "Atendimento aos clientes do banco Itau"
+        }
+    };
+}
